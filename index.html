@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body{
+background-color: #a8a7aa;
+margin: 0;
+border: 0;
+}
+form{
+background-color: #13232f;
+width: 30%;
+padding: 50px;
+text-align: center;
+color:white;
+border-radius: 20px;
+box-shadow: 35px 45px 65px rgba(0,0,0,.5);
+
+
+}
+button{
+background-color: #11aa81;
+font-size: 18;
+padding: 5px;
+color: whitesmoke;
+margin-top: 18px;
+border: none;
+width: 40%;
+font-size: 26;
+}
+header{
+display: block;
+padding: 13px;
+background-color: #13232f;
+width: 100%;
+}
+a{
+text-decoration: none;
+background-color: #1ab188;
+padding: 4px;
+color: whitesmoke;
+border-radius: 3px;
+gap: 29px;
+}
+.home{
+    margin-right: 10px;
+}
+.category{
+    margin-right: 10px;
+}
+input{
+border: 3px solid #cfc9c9;
+border-radius: 4px ;
+}
+
+
+form label {
+display: block;
+}
+.error, .req {
+color: tomato;
+}
+.req::before {
+content: " ";
+}
+</style>
+</head>
+<body>
+    <header>
+    <a class = home href="http://localhost:5502/"> Home </a> 
+    <a class = category href="http://localhost:5502/category">Category Form</a>
+    <a href="http://localhost:5502/product"> Order From</a></header>
+    
+<br> <center> <form id="form">
+<div>
+<label> Name<span class="req">*</span></label>
+<input type="text" autocomplete="off" id="Name"/>
+<p id="Name_error" class="error"></p>
+
+
+</div>
+
+
+<p>
+<b>Status</b>
+<lable><input checked type="radio" name="Status" value="enable"/>
+Enable </label>
+<lable> <input type="radio" name="Status" value="disable"/>
+Disable </lable>
+</p>
+
+
+<button type="submit">Submit</button>
+</form></center>
+<script>
+const form = document.getElementById("form");
+form.onsubmit = ( (event) => {
+let validForm = true;
+
+
+const Name = document.getElementById("Name");
+if(Name.value == "" || !Name.value) {
+validForm = false;
+document.getElementById("Name_error").innerHTML = "";
+document.getElementById("Name_error").innerHTML = "Field should not be empty.";
+}
+if(!validForm) {
+event.preventDefault();
+}
+})
+</script>
+</body>
+</html>
