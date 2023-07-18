@@ -1,0 +1,225 @@
+<html>
+<head>
+<style>
+body{
+background-color: #a8a7aa;
+margin: 0;
+border: 0;
+}
+.center{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+/* text-align: center; */
+}
+form{
+background-color: #13232f;
+padding: 20px;
+width: 650;
+color:white;
+text-align: center;
+border-radius: 20px;
+box-shadow: 45px 55px 75px rgba(0,0,0,.5);
+}
+lable{
+padding: 20px;
+}
+button{
+background-color: #11aa81;
+border: none;
+font-size: 18;
+padding: 10px;
+color: whitesmoke;
+width: 100%;
+display: block;
+}
+header{
+display: block;
+padding: 13px;
+background-color: #13232f;
+width: 100%;
+}
+a{
+background-color: #1ab188;
+padding: 4px;
+color: whitesmoke;
+border-radius: 3px;
+text-decoration: none;
+gap: 29px;
+}
+.home{
+    margin-right: 10px;
+}
+.category{
+    margin-right: 10px;
+}
+/* .field-wrap lable{
+display: inline-block;
+margin-bottom: 2px;
+font-size: 20;
+} */
+.field-wrap input{
+border: 3px solid #cfc9c9;
+border-radius: 4px ;
+padding: 5px;
+}
+.checklist{
+border: 3px solid #cfc9c9;
+border-radius: 4px ;
+padding: 5px;
+width: 29%;
+
+
+}
+.field-wrap textarea{
+display: block;
+border: 3px solid #cfc9c9;
+border-radius: 4px ;
+padding: 5px;
+
+
+}
+form label {
+display: block;
+}
+.error, .req {
+color: tomato;
+}
+.req::before {
+content: " ";
+}
+</style>
+</head>
+<body>
+    <header>
+<a class="home" href="http://localhost:5502/"> Home </a>   
+<a class="category" href="http://localhost:5502/category">Category Form</a>
+<a href="http://localhost:5502/product"> Order From</a></header>
+
+<div class="center">
+<h1>Order Form</h1>
+<p>Please fill the form to place your order</p>
+<form id="form">
+<div class="top-row">
+<div class="field-wrap">
+<p font-size="23">
+Status:
+<lable>
+<input checked type="radio" name="Status" value="enable"/>
+Enable</label>
+<lable> <input type="radio" name="Status" value="disable"/>
+Disable
+</lable>
+</p>
+</div>
+<div class="field-wrap">
+<label>
+Category Name<span class="req">*</span>
+</label>
+<select id="name" class="checklist">
+<option value="">Select option</option>
+<option value="1">Moblie</option>
+<option value="2">Computer</option>
+<option value="3">Laptop</option>
+<option value="4">Headseset</option>
+<option value="5">key Board</option>
+<option value="6">Mouse</option>
+</select>
+<p id="category_error" class="error"></p>
+</div>
+<br>
+<div class="field-wrap">
+<label>
+Product<span class="req">*</span>
+</label>
+<input type="text" autocomplete="off" id="product"/>
+<p id="product_error" class="error"></p>
+</div>
+<br>
+<div class="field-wrap">
+<label>
+Quantity<span class="req">*</span>
+</label>
+<input type="number" autocomplete="off" id="Quantity"/>
+<p id="Quantity_error" class="error"></p>
+</div>
+<br>
+<div class="field-wrap">
+<label>
+Item Name<span class="req">*</span>
+</label>
+<input name="itemname" type="text" autocomplete="off" id="itemname"/>
+<p id="itemname_error" class="error"></p>
+</div>
+<br>
+<div class="field-wrap">
+<label>
+Item No<span class="req">*</span>
+</label>
+<input type="text" autocomplete="off" id="itemno"/>
+<p id="itemno_error" class="error"></p>
+</div>
+<br>
+<div class="field-wrap">
+<lable>Additional Comment:</lable>
+<center> <textarea name= "message" rows="6" cols="40"> </textarea></center>
+</div>
+<br>
+<button type="submit">Submit</button>
+</div>
+</form>
+<script>
+const form = document.getElementById("form");
+
+
+form.onsubmit = ( (event) => {
+let validForm = true;
+
+
+const CategoryName = document.getElementById("name");
+if(CategoryName.value == "" || !CategoryName.value) {
+validForm = false;
+document.getElementById("category_error").innerHTML = "";
+document.getElementById("category_error").innerHTML = "Field should not be empty.";
+}
+const Product = document.getElementById("product");
+if(Product.value == "" || !product.value){
+validForm = false;
+document.getElementById("product_error").innerHTML = "";
+document.getElementById("product_error").innerHTML = "Field should not be empty.";
+}
+
+
+const Quantity = document.getElementById("Quantity");
+if(Quantity.value == "" || !Quantity.value){
+validForm = false;
+document.getElementById("Quantity_error").innerHTML = "";
+document.getElementById("Quantity_error").innerHTML = "Field should not be empty.";
+}
+
+
+const Itemname = document.getElementById("itemname");
+if(Itemname.value == "" || !Itemname.value){
+validForm = false;
+document.getElementById("itemname_error").innerHTML = "";
+document.getElementById("itemname_error").innerHTML = "Field should not be empty.";
+}
+
+
+const ItemNo = document.getElementById("itemno");
+if(ItemNo.value == "" || !ItemNo.value){
+validForm = false;
+document.getElementById("itemno_error").innerHTML = "";
+document.getElementById("itemno_error").innerHTML = "Field should not be empty.";
+}
+
+
+if(!validForm) {
+event.preventDefault();
+}
+})
+</script>
+</div>
+</body>
+</htm
